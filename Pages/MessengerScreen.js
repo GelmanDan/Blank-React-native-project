@@ -4,21 +4,38 @@ import {
     Text,
     View
 } from 'react-native';
+import PropTypes from 'prop-types';
+import {GiftedChat} from 'react-native-gifted-chat';
 
 import { Actions } from 'react-native-router-flux';
 
-const MessengerScreen = () => {
-    return (
-        <View style={styles.container}>
-            <Text
-                style={styles.nav}
-                onPress={() => Actions.first()}
-            >
-                Second
-            </Text>
-        </View>
-    )
+
+export default class MessengerScreen extends Component{
+    state = {
+      messages: [],
+    };
+    render() {
+        return(
+            <GiftedChat
+                messages={this.state.message}
+                onSend={()=> {
+                    // to backend
+                }}
+                user={{
+                    _id:1,
+                }}
+            />
+        )
+    }
 }
+
+MessengerScreen.defaultProps = {
+    name: 'User',
+};
+
+MessengerScreen.propTypes = {
+    name: PropTypes.string
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -34,5 +51,3 @@ const styles = StyleSheet.create({
         color: '#000000',
     }
 });
-
-export default MessengerScreen;
