@@ -14,6 +14,7 @@ import { ApolloProvider } from "react-apollo";
 
 import Routes from './components/router/routes';
 import Login from './components/login/login';
+import Register from './components/login/register';
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',

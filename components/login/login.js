@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
+    ScrollView,
     StyleSheet,
-    Text,
+    Text, TextInput, TouchableHighlight,
     View
 } from 'react-native';
 
@@ -13,33 +14,48 @@ function addChar(input, character) {
 
 const Login = () => {
     return (
-        <View style={styles.container}>
-            <Text>XER TEBE</Text>
-        </View>
+        <ScrollView style={styles.container}>
+            <TextInput
+                style={styles.input}
+                placeholder="Email"
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Password"
+            />
+            <TouchableHighlight >
+                <Text style={[styles.button, styles.blueButton]}>Log in</Text>
+            </TouchableHighlight>
+        </ScrollView>
 
     )
 }
 
 const styles = StyleSheet.create({
     container: {
+        padding: 20,
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'blue',
+        flexDirection: 'column'
     },
-    number: {
-        margin: 5,
-        padding: 10,
-        paddingLeft:15,
-        paddingRight: 15,
-        fontSize: 16,
-        backgroundColor: 'white',
-    },
-    nav: {
-        fontSize: 30,
+    button: {
+        borderRadius: 4,
+        padding: 20,
         textAlign: 'center',
-        margin: 10,
-        color: '#FFFFFF',
+        marginBottom: 20,
+        color: '#fff'
+    },
+    blueButton: {
+        backgroundColor: '#2E9AFE'
+    },
+    input: {
+        marginBottom:10,
+        marginTop: 10,
+        height: 60,
+        fontSize:20,
+    },
+    centering: {
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 
