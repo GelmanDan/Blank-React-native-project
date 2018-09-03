@@ -11,18 +11,10 @@ function addChar(input, character) {
     alert(character);
 }
 
-const FirstScreen = () => {
+const Login = () => {
     return (
         <View style={styles.container}>
-            <Text
-                style={styles.nav}
-                onPress={() => Actions.messanger()}
-            >
-                First
-            </Text>
-            <Text style={styles.number} onPress={addChar('', '1')}>1</Text>
-            <Text style={styles.number} onPress={addChar('', '2')}>2</Text>
-            <Text style={styles.number} onPress={addChar('', '3')}>3</Text>
+            <Text>XER TEBE</Text>
         </View>
 
     )
@@ -36,12 +28,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue',
     },
     number: {
-      margin: 5,
-      padding: 10,
-      paddingLeft:15,
-      paddingRight: 15,
-      fontSize: 16,
-      backgroundColor: 'white',
+        margin: 5,
+        padding: 10,
+        paddingLeft:15,
+        paddingRight: 15,
+        fontSize: 16,
+        backgroundColor: 'white',
     },
     nav: {
         fontSize: 30,
@@ -51,4 +43,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default FirstScreen;
+export default Login;
