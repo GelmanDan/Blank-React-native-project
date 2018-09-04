@@ -108,9 +108,9 @@ export default class App extends Component<Props> {
                                     <Scene key="tab_1_1" component={MessengerScreen} title="Tab #1_1" onRight={() => alert('Right button')} rightTitle="Right" />
                                 </Stack>
                             </Tabs>:
-                            <Stack>
-                                <Scene key="SignIn" title="Login" component={Login}/>
-                                <Scene key="SignUp" title="Login" component={Register}/>
+                            <Stack >
+                                <Scene key="SignIn" title="Login" component={Login} screenProps={{changeLoginState: this.handleChangeLoginState}}/>
+                                <Scene key="SignUp" title="Login" component={Register} screenProps={{changeLoginState: this.handleChangeLoginState}}/>
                             </Stack>
                         }
                     </Scene>

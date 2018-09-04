@@ -72,7 +72,7 @@ class Register extends Component<Props> {
         this.setState({nameError: false});
 
         this.props
-            .signup(email, password)
+            .signup(username, name, email, password)
             .then(({ data }) => {
                 return this.props.screenProps.changeLoginState(true, data.signup.jwt);
             })
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
 export default graphql(
     gql`
     mutation{
-        createUser(username:"ivan1",name:"ivan1",email:"ivan@ivan.ivan",password:"123321",role:"test"){
+        createUser(username: $email,name: $name,email: $email,password: $password,role:"test2"){
             name,
             username,
             password,
@@ -172,7 +172,7 @@ export default graphql(
     `,
     {
         props: ({ mutate }) => ({
-            signup: (name, username, password, email, role) => mutate({ variables: { name, username, password, email, role } }),
+            signup: (username, name, email, password, role) => mutate({ variables: { username, name, email, password, role } }),
         }),
     },
 )(Register);

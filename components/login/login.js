@@ -8,6 +8,9 @@ import {
 
 import { Actions } from 'react-native-router-flux';
 
+import {graphql} from 'react-apollo';
+import gql from 'graphql-tag';
+
 const Login = () => {
     return (
         <ScrollView style={styles.container}>
@@ -65,4 +68,6 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Login;
+export default graphql(
+    gql``
+)(Login);
