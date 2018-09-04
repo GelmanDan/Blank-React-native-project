@@ -15,8 +15,7 @@ const TabIcon = ({selected, title}) => {
 export default class Routes extends Component<Props> {
     render() {
         return (
-            <Router>
-                <Scene key="root" tabs={true}>
+                <Scene tabs={true}>
                     <Scene key="Calculator" title="Calculator" icon={TabIcon}>
                         <Scene
                             key="first"
@@ -47,7 +46,6 @@ export default class Routes extends Component<Props> {
                         />
                     </Scene>
                 </Scene>
-            </Router>
         );
     }
 }

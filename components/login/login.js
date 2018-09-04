@@ -8,10 +8,6 @@ import {
 
 import { Actions } from 'react-native-router-flux';
 
-function addChar(input, character) {
-    alert(character);
-}
-
 const Login = () => {
     return (
         <ScrollView style={styles.container}>
@@ -24,8 +20,12 @@ const Login = () => {
                 placeholder="Password"
             />
             <TouchableHighlight >
-                <Text style={[styles.button, styles.blueButton]}>Log in</Text>
+                <Text style={[styles.button, styles.blueButton]}>Sign Up</Text>
             </TouchableHighlight>
+            <Text
+                style={styles.signButton}
+                onPress={() => Actions.SignUp()}
+            >Sign In</Text>
         </ScrollView>
 
     )
@@ -46,6 +46,12 @@ const styles = StyleSheet.create({
     },
     blueButton: {
         backgroundColor: '#2E9AFE'
+    },
+    signButton: {
+        color: '#2E9AFE',
+        marginBottom:10,
+        marginTop: 10,
+        textAlign: 'center',
     },
     input: {
         marginBottom:10,
