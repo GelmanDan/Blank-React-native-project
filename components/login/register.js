@@ -160,15 +160,15 @@ const styles = StyleSheet.create({
 
 export default graphql(
     gql`
-    mutation{
-        createUser(username: $email,name: $name,email: $email,password: $password,role:"test2"){
+    mutation createUser($username: String!, $name: String!, $email: String!, $password: String!){
+        createUser(username: $username,name: $name,email: $email,password: $password,role:["user"]){
             name,
             username,
             password,
             email,
             role,
           }
-        }   
+        }  
     `,
     {
         props: ({ mutate }) => ({

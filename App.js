@@ -12,6 +12,8 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import {ApolloClient, HttpLink, InMemoryCache} from "apollo-client-preset";
 import {ApolloProvider} from "react-apollo";
 
+import * as base64 from 'base-64';
+
 //import Routes from './components/router/routes';
 import Login from './components/login/login';
 import Register from './components/login/register';
@@ -65,6 +67,10 @@ export default class App extends Component<Props> {
             signOut();
         }
     };
+    handleSubmit = () => {
+            this.handleChangeLoginState(false,'');
+    };
+
     // TODO refactor this return !!!
     render() {
         return (
@@ -89,10 +95,10 @@ export default class App extends Component<Props> {
                                     inactiveBackgroundColor="#FFF"
                                     activeBackgroundColor="#DDD"
                                     icon={TabIcon}
-                                    navigationBarStyle={{ backgroundColor: 'green' }}
+                                    navigationBarStyle={{ backgroundColor: 'blue' }}
                                     titleStyle={{ color: 'white', alignSelf: 'center' }}
                                 >
-                                    <Scene key="tab_1_1" component={MessengerScreen} title="Tab #1_1" onRight={() => alert('Right button')} rightTitle="Right" />
+                                    <Scene key="tab_1_1" component={MessengerScreen} title="Tab #1_1" onRight={() => this.handleSubmit()} rightTitle="Log out" />
 
                                 </Stack>
 

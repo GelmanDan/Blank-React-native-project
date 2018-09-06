@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "apollo-client-preset": "^1.0.8",
+    "base-64": "^0.1.0",
     "graphql": "^14.0.0",
     "graphql-tag": "^2.9.2",
     "react": "16.4.1",
