@@ -3,6 +3,7 @@ import FirstScreen from "../../Pages/FirstScreen";
 import MessengerScreen from "../../Pages/MessengerScreen";
 import Login from '../../components/login/login';
 import Register from '../../components/login/register';
+import List from '../../components/list/index';
 
 import React from "react";
 import {Router, Scene, Tabs, Stack, TabView} from "react-native-router-flux";
@@ -75,15 +76,15 @@ export default class RoutesIn extends Component<Props> {
 
                             </Stack>
 
-                            <Stack key="tab_2" title="Tab #2" icon={TabIcon} initial>
-                                <Scene key="tab_1_1" component={MessengerScreen} title="Tab #1_1" onRight={() => alert('Right button')} rightTitle="Right" />
+                            <Stack key="tab_2" title="Tab #2" icon={TabIcon} >
+                                <Scene key="tab_1_1" component={MessengerScreen} title="Tab #2_1" onRight={() => alert('Right button')} rightTitle="Right" />
                             </Stack>
-                            <Stack key="tab_3" icon={TabIcon} title="Tab #3">
-                                <Scene key="tab_1_1" component={MessengerScreen} title="Tab #1_1" onRight={() => alert('Right button')} rightTitle="Right" />
+                            <Stack key="tab_3" icon={TabIcon} title="Tab #3" initial>
+                                <Scene key="tab_1_1" component={MessengerScreen} title="Tab #3_1" onRight={() => alert('Right button')} rightTitle="Right" />
                             </Stack>
                             <Scene key="tab_4_1" component={MessengerScreen} title="Tab #4" hideNavBar icon={TabIcon} />
                             <Stack key="tab_5" icon={TabIcon} title="Tab #5">
-                                <Scene key="tab_1_1" component={MessengerScreen} title="Tab #1_1" onRight={() => alert('Right button')} rightTitle="Right" />
+                                <Scene key="tab_1_1" component={List} title="Tab #5_1" onRight={() => alert('Right button')} rightTitle="Right" />
                             </Stack>
                         </Tabs>:
                         <Stack >

@@ -7,13 +7,23 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, FlatList} from 'react-native';
 
-import {signIn, signOut, getToken} from './components/util'
-import {Router, Scene, Tabs, Stack, TabView} from "react-native-router-flux";
+import {signIn, signOut, getToken} from '../../components/util'
+import {Scene, Tabs, Stack, TabView} from "react-native-router-flux";
+import { gql } from 'apollo-boost';
+import { Query } from 'react-apollo';
+import jsonToUrlEncoded from '../../services/login/index';
 
+const LIST_ITEMS = gql`query{
+  userList{
+    name,
+    username,
+    password,
+    email,
+  }
+}`;
 
-type Props = {};
 class List extends Component<Props> {
     constructor(props) {
         super(props);
@@ -23,16 +33,27 @@ class List extends Component<Props> {
         }
     }
 
+
     // TODO refactor this return !!!
     render() {
         return (
-           <View>
+            <Query query={LIST_ITEMS}>
+                {({ loading, error, data }) => {
+                    if (loading) return <Text>Loading...</Text>;
+                    if (error) return <Text>{error}</Text>;
 
-           </View>
+                    return (
+                        <FlatList
+                            data={[{key: 'a'}, {key: 'b'}]}
+                            renderItem={({item}) => <Text>{item.key}</Text>}
+                        />
+                    )
+                }}
+            </Query>
         );
     }
 }
 
 const styles = StyleSheet.create({});
 
-export default
+export default List;
